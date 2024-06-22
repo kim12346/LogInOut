@@ -39,7 +39,7 @@ def join():
     confirm_btn = Button(root, width=10, height=1, text="확인", command=confirm)
     confirm_btn.pack()
 
-def confirm():
+def confirm(): # 회원가입 창에서 아이디와 비번을 입력하고 확인 버튼을 눌렀을  때의 이벤트
     dict_id = new_id_en.get()
     dict_pw = new_pw_en.get()
 
