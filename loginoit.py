@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import ttk
 
 dict = {}
 list = []
@@ -39,7 +40,8 @@ def join():
     confirm_btn = Button(root, width=10, height=1, text="확인", command=confirm)
     confirm_btn.pack()
 
-def confirm(): # 회원가입 창에서 아이디와 비번을 입력하고 확인 버튼을 눌렀을  때의 이벤트
+def confirm(): # 회원가입 창에서 아이디와 비번을 입력하고 확인 버튼을 눌렀을 때의 이벤트
+
     dict_id = new_id_en.get()
     dict_pw = new_pw_en.get()
 
@@ -75,6 +77,7 @@ def chk_login():
 
     if input_id in dict and dict[input_id] == input_pw:
         print("로그인 성공!")
+        infor_user()
     elif input_id not in dict:
         print("입력하신 아이디는 존재하지 않습니다.")
     elif dict[input_id] != input_pw:
@@ -82,6 +85,30 @@ def chk_login():
     else:
         print("로그인 실패")
 
+
+def infor_user():
+
+    global user, profile, pro_lable, grid, pro_out, logoutbtn
+    grid = ttk.Separator(root, orient="horizontal")
+    grid.pack(fill="both")
+
+    profile = PhotoImage(file="파이썬/userimg.png")
+    pro_lable = Label(root, image=profile)
+    pro_lable.pack()
+    user = Label(root, width=20, height=1, text=f"회원 아이디: {input_id}")
+    user.pack()
+    logoutbtn = Button(root, text="로그아웃", command=logout)#로그아웃버튼
+    logoutbtn.pack()
+    pro_out = Button(root, text="회원탈퇴", command=proout) #회원탈퇴버튼
+    pro_out.pack()
+
+#test.py에 원본있음
+
+def logout(): # 회원정보함수에서 로그아웃버튼을 눌렀을 때 로그아웃되는 함수(프로필, 입력한 정보가 사라져야됨)
+    pass
+
+def proout(): # 회원탈퇴 함수(파일에 있는 아이디 지우고 로그아웃함수 포함시키기)
+    pass
 log_btn = Button(root, width=10, height=1, text="LogIn", command=chk_login)  # 로그인 버튼
 log_btn.pack()
 
