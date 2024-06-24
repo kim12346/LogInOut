@@ -1,6 +1,10 @@
 from tkinter import *
 from tkinter import ttk
 
+
+
+open('IDPW.txt', 'w', encoding="utf8")
+
 dict = {}
 list = []
 
@@ -23,7 +27,7 @@ pw_entry.pack()
 
 def join():
     print("회원가입창입니다.")
-    global new_id_en, new_pw_en, confirm_btn
+    global new_id_en, new_pw_en, confirm_btn, canc_btn
 
     new_id_label = Label(root, text="New ID: ")
     new_id_label.pack()
@@ -39,6 +43,9 @@ def join():
 
     confirm_btn = Button(root, width=10, height=1, text="확인", command=confirm)
     confirm_btn.pack()
+    canc_btn = Button(root, width=10, height=1, text='취소', command=cancle)
+def cancle():# 회원가입창에서 취소버튼을 누르면 회원가입창 사라짐
+    pass
 
 def confirm(): # 회원가입 창에서 아이디와 비번을 입력하고 확인 버튼을 눌렀을 때의 이벤트
 
@@ -50,7 +57,7 @@ def confirm(): # 회원가입 창에서 아이디와 비번을 입력하고 확�
 
     if dict_id and dict_pw:
         list.append("{} {}".format(dict_id, dict_pw))
-        with open("inf.txt", "a", encoding="utf8") as inf_file:
+        with open("IDPW.txt", "a", encoding="utf8") as inf_file:
             inf_file.write("{} {}\n".format(dict_id, dict_pw))
     else:
         print("아이디 또는 패스워드를 입력하세요!")
@@ -62,7 +69,7 @@ def chk_login():
     input_pw = pw_entry.get()
 
     try:
-        with open("inf.txt", "r", encoding="utf8") as chkfile:
+        with open("IDPW.txt", "r", encoding="utf8") as chkfile:
             for line in chkfile:
                 tmp = line.rstrip().split()
 
@@ -108,7 +115,14 @@ def logout(): # 회원정보함수에서 로그아웃버튼을 눌렀을 때 로
     pass
 
 def proout(): # 회원탈퇴 함수(파일에 있는 아이디 지우고 로그아웃함수 포함시키기)
-    pass
+    global file, i
+    file = open('IDPW.txt', 'r', encoding="utf8")
+    for i in file:
+        i = file.readline()
+        if input_id in i:
+            del(i)
+        
+
 log_btn = Button(root, width=10, height=1, text="LogIn", command=chk_login)  # 로그인 버튼
 log_btn.pack()
 
