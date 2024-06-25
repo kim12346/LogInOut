@@ -3,8 +3,6 @@ from tkinter import ttk
 
 
 
-open('IDPW.txt', 'w', encoding="utf8")
-
 dict = {}
 list = []
 
@@ -27,7 +25,10 @@ pw_entry.pack()
 
 def join():
     print("회원가입창입니다.")
-    global new_id_en, new_pw_en, confirm_btn, canc_btn
+    global new_id_en, new_pw_en, confirm_btn, canc_btn, new_id_label, new_pw_label, grid
+
+    grid = ttk.Separator(root, orient="horizontal")
+    grid.pack(fill="both")
 
     new_id_label = Label(root, text="New ID: ")
     new_id_label.pack()
@@ -44,10 +45,21 @@ def join():
     confirm_btn = Button(root, width=10, height=1, text="확인", command=confirm)
     confirm_btn.pack()
     canc_btn = Button(root, width=10, height=1, text='취소', command=cancle)
-def cancle():# 회원가입창에서 취소버튼을 누르면 회원가입창 사라짐
-    pass
+    canc_btn.pack()
+def cancle():# 회원가입창 에서 취소버튼을 누르면 회원가입창 사라짐
+
+    new_id_en.destroy() #입력 창 등 삭제
+    new_pw_en.destroy()
+    new_id_label.destroy()
+    new_pw_label.destroy()
+    confirm_btn.destroy()
+    canc_btn.destroy()
+    grid.destroy()
+
 
 def confirm(): # 회원가입 창에서 아이디와 비번을 입력하고 확인 버튼을 눌렀을 때의 이벤트
+
+
 
     dict_id = new_id_en.get()
     dict_pw = new_pw_en.get()
@@ -61,6 +73,14 @@ def confirm(): # 회원가입 창에서 아이디와 비번을 입력하고 확�
             inf_file.write("{} {}\n".format(dict_id, dict_pw))
     else:
         print("아이디 또는 패스워드를 입력하세요!")
+
+    new_id_en.destroy() #입력 창 등 삭제
+    new_pw_en.destroy()
+    new_id_label.destroy()
+    new_pw_label.destroy()
+    confirm_btn.destroy()
+    canc_btn.destroy()
+    grid.destroy()
 
 def chk_login():
     global input_id, input_pw
@@ -112,15 +132,16 @@ def infor_user():
 #test.py에 원본있음
 
 def logout(): # 회원정보함수에서 로그아웃버튼을 눌렀을 때 로그아웃되는 함수(프로필, 입력한 정보가 사라져야됨)
-    pass
+    pro_lable.destroy()
+    user.destroy()
+    logoutbtn.destroy()
+    pro_out.destroy()
+    id_entry.delete(0, END)
+    pw_entry.delete(0, END)
+    
 
 def proout(): # 회원탈퇴 함수(파일에 있는 아이디 지우고 로그아웃함수 포함시키기)
-    global file, i
-    file = open('IDPW.txt', 'r', encoding="utf8")
-    for i in file:
-        i = file.readline()
-        if input_id in i:
-            del(i)
+    pass
         
 
 log_btn = Button(root, width=10, height=1, text="LogIn", command=chk_login)  # 로그인 버튼
