@@ -1,0 +1,38 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+.login{
+    margin-top: 30px;
+    width: 500px;
+    height: 600px;
+    border: 1px solid black;
+    box-shadow: 3px 3px 4px 2px #555555
+}
+.title h1{
+    text-align: center;
+    margin-top: 20px;
+}
+label{
+    font-size: large;
+}
+input{
+    height: 25px;
+    width: 200px;
+    margin: 30px;
+}
+.mix_inf{
+    text-align: center;
+    margin-top: 50px;
+}
+button{
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+}
+.buttons{
+    margin-top: 30px;
+    text-align: center;
+}
