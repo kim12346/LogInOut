@@ -21,6 +21,7 @@ pw_label.pack()
 pw_entry = Entry(root, width=30, show="*")
 pw_entry.pack()
 
+# 회원가입창 함수
 def join():
     print("회원가입창입니다.")
     global new_id_en, new_pw_en, confirm_btn, canc_btn, new_id_label, new_pw_label, grid
@@ -44,7 +45,10 @@ def join():
     confirm_btn.pack()
     canc_btn = Button(root, width=10, height=1, text='취소', command=cancle)
     canc_btn.pack()
-def cancle():# 회원가입창 에서 취소버튼을 누르면 회원가입창 사라짐
+
+
+# 회원가입창 취소버튼함수(회원가입창 사라짐)
+def cancle():
 
     new_id_en.destroy() #입력 창 등 삭제
     new_pw_en.destroy()
@@ -55,7 +59,8 @@ def cancle():# 회원가입창 에서 취소버튼을 누르면 회원가입창 
     grid.destroy()
 
 
-def confirm(): # 회원가입 창에서 아이디와 비번을 입력하고 확인 버튼을 눌렀을 때의 이벤트
+# 회원가입 창에서 아이디와 비번을 입력하고 확인 버튼을 눌렀을 때의 이벤트
+def confirm(): 
 
     dict_id = new_id_en.get()
     dict_pw = new_pw_en.get()
@@ -77,6 +82,7 @@ def confirm(): # 회원가입 창에서 아이디와 비번을 입력하고 확�
     canc_btn.destroy()
     grid.destroy()
 
+#로그인 확인 함수
 def chk_login():
     global input_id, input_pw
 
@@ -107,7 +113,7 @@ def chk_login():
     else:
         print("로그인 실패")
 
-
+# 사용자 정보(로그아웃버튼, 회원탈퇴버튼 포함)
 def infor_user():
 
     global user, profile, pro_lable, grid, pro_out, logoutbtn
@@ -124,9 +130,9 @@ def infor_user():
     pro_out = Button(root, text="회원탈퇴", command=proout) #회원탈퇴버튼
     pro_out.pack()
 
-#test.py에 원본있음
 
-def logout(): # 회원정보함수에서 로그아웃버튼을 눌렀을 때 로그아웃되는 함수(프로필, 입력한 정보가 사라져야됨)
+# 회원정보함수에서 로그아웃버튼을 눌렀을 때 로그아웃되는 함수
+def logout():
 
     new_id_en.destroy() #입력 창 등 삭제
     new_pw_en.destroy()
@@ -135,9 +141,10 @@ def logout(): # 회원정보함수에서 로그아웃버튼을 눌렀을 때 로
     confirm_btn.destroy()
     canc_btn.destroy()
     grid.destroy()
-    
 
-def proout(): # 회원탈퇴 함수(파일에 있는 아이디 지우고 로그아웃함수 포함시키기)
+
+# 회원탈퇴 함수(파일에 있는 아이디 지우고 로그아웃함수 포함시키기)
+def proout():
     global lines, chk_id, chk_pw, newlines, line
 
     chk_id = id_entry.get()
