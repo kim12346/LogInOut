@@ -113,7 +113,8 @@ def chk_login():
     else:
         print("로그인 실패")
 
-# 사용자 정보(로그아웃버튼, 회원탈퇴버튼 포함)
+# 사용자 정보(사용자사진, 로그아웃버튼, 회원탈퇴버튼 포함)
+# 사용자 사진 안나올시 -> 파일 경로 수정
 def infor_user():
 
     global user, profile, pro_lable, grid, pro_out, logoutbtn
@@ -129,6 +130,8 @@ def infor_user():
     logoutbtn.pack()
     pro_out = Button(root, text="회원탈퇴", command=proout) #회원탈퇴버튼
     pro_out.pack()
+
+
 
 
 # 회원정보함수에서 로그아웃버튼을 눌렀을 때 로그아웃되는 함수
