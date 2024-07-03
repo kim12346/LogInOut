@@ -9,11 +9,31 @@
     width: 500px;
     height: 600px;
     border: 1px solid black;
-    box-shadow: 3px 3px 4px 2px #555555
+    background-color: white;
+    box-shadow: 3px 3px 4px 2px #555555;
+    position: relative;
+
 }
-.title h1{
+.join{
+    margin-top: 30px;
+    width: 500px;
+    height: 600px;
+    border: 1px solid black;
+    background-color: white;
+    display: none;
+    position: absolute;
+    left: 518px;
+    bottom: 99px;
+}
+.closebtn{
+    width: 20px;
+    height: 20px;
+    margin-left: 2px;
+}
+.log-title h1, .jo-title h1{
     text-align: center;
     margin-top: 20px;
+    font-weight: bolder;
 }
 label{
     font-size: large;
@@ -23,7 +43,7 @@ input{
     width: 200px;
     margin: 30px;
 }
-.mix_inf{
+.log-mix_inf, .jo-mix_inf{
     text-align: center;
     margin-top: 50px;
 }
@@ -32,7 +52,39 @@ button{
     height: 30px;
     font-size: 15px;
 }
-.buttons{
+button:hover{
+    background-color: rgb(211, 211, 211);
+    border: 1px solid black;
+    font-weight: bolder;
+}
+.log-buttons, .jo-buttons{
     margin-top: 30px;
     text-align: center;
+}
+.closebtn{
+    position: absolute;
+    left: 465px;
+    top: 10px;
+}
+.closebtn2, .infout{
+    width: 100px;
+    height: 30px;
+    margin-top: 100px;
+}
+.inform{
+    width: 300px;
+    height: 350px;
+    border: 3px solid black;
+    background-color: white;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    text-align: center;
+    display: none;
+}
+.profile-img{
+    margin-top: 20px;
+    width: 100px;
+    height: 120px;
+    border: 1px solid black;
 }

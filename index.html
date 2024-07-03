@@ -10,29 +10,60 @@
 
 <body>
     <div class="login">
-        <div class="title">
+        <div class="log-title">
             <h1>로그인</h1>
         </div>
-        <div class="contents">
-            <div class="mix_inf">
+        <div class="log-contents">
+            <div class="log-mix_inf">
                 <label for="id">
-                    ID <input type="id" name="id" id="inp_id" placeholder=" 아이디를 입력하시오.">
+                    ID <input type="id" name="id" id="log-inp_id" placeholder=" 아이디를 입력하시오.">
                 </label>
                 <br>
                 <label for="pw">
-                    PW<input type="password" name="password" id="inp_pw" placeholder=" 비밀번호를 입력하시오.">
+                    PW<input type="password" name="password" id="log-inp_pw" placeholder=" 비밀번호를 입력하시오.">
                 </label>
             </div>
         </div>
         <footer>
-            <div class="buttons">
-                <button>확인</button>
-                <button>회원가입</button>
+            <div class="log-buttons">
+                <button class="log-chkbtn">확인</button>
+                <button class="log-joinbtn">회원가입</button>
             </div>
         </footer>
     </div>
-    <script src="script.js"></script>
+    <div class="join">
+        <div class="jo-title">
+            <button class="closebtn">X</button>
+            <h1>회원가입</h1>
+        </div>
+        <div class="jo-contents">
+            <div class="jo-mix_inf">
+                <label for="id">
+                    NEW ID <input type="id" name="id" id="jo-inp_id" placeholder=" 새로운 아이디를 입력하시오.">
+                </label>
+                <br>
+                <label for="pw">
+                    NEW PW<input type="password" name="password" id="jo-inp_pw" placeholder=" 새로운 비밀번호를 입력하시오.">
+                </label>
+            </div>
+        </div>
+        <footer>
+            <div class="jo-buttons">
+                <button class="jo-joinbtn">가입하기</button>
+            </div>
+        </footer>
+    </div>
+    <div class="inform">
+        <h1>회원정보</h1>
+        <div class="profile">
+            <div class="profile-img">사진추가</div>
+            <div class="id">ID: <span class="id">아이디 텍스트</span></div>
+        </div>
+        <button class="closebtn2">로그아웃</button>
+        <button class="infout">회원탈퇴</button>
+    </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
