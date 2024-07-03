@@ -57,11 +57,8 @@ def cancle():# 회원가입창 에서 취소버튼을 누르면 회원가입창 
 
 def confirm(): # 회원가입 창에서 아이디와 비번을 입력하고 확인 버튼을 눌렀을 때의 이벤트
 
-
-
     dict_id = new_id_en.get()
     dict_pw = new_pw_en.get()
-
     new_id_en.delete(0, END)
     new_pw_en.delete(0, END)
 
@@ -130,18 +127,23 @@ def infor_user():
 #test.py에 원본있음
 
 def logout(): # 회원정보함수에서 로그아웃버튼을 눌렀을 때 로그아웃되는 함수(프로필, 입력한 정보가 사라져야됨)
-    pro_lable.destroy()
-    user.destroy()
-    logoutbtn.destroy()
-    pro_out.destroy()
-    id_entry.delete(0, END)
-    pw_entry.delete(0, END)
+
+    new_id_en.destroy() #입력 창 등 삭제
+    new_pw_en.destroy()
+    new_id_label.destroy()
+    new_pw_label.destroy()
+    confirm_btn.destroy()
+    canc_btn.destroy()
+    grid.destroy()
     
 
 def proout(): # 회원탈퇴 함수(파일에 있는 아이디 지우고 로그아웃함수 포함시키기)
     global lines, chk_id, chk_pw, newlines, line
+
     chk_id = id_entry.get()
     chk_pw = pw_entry.get()
+    id_entry.delete(0, END)
+    pw_entry.delete(0, END)
     pro_lable.destroy()
     user.destroy()
     logoutbtn.destroy()
