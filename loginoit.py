@@ -1,8 +1,6 @@
 from tkinter import *
 from tkinter import ttk
 
-
-
 dict = {}
 list = []
 
@@ -141,8 +139,23 @@ def logout(): # 회원정보함수에서 로그아웃버튼을 눌렀을 때 로
     
 
 def proout(): # 회원탈퇴 함수(파일에 있는 아이디 지우고 로그아웃함수 포함시키기)
-    pass
-        
+    global lines, chk_id, chk_pw, newlines, line
+    chk_id = id_entry.get()
+    chk_pw = pw_entry.get()
+    pro_lable.destroy()
+    user.destroy()
+    logoutbtn.destroy()
+    pro_out.destroy()
+    with open("IDPW.txt", "r", encoding="utf8") as chkfile:
+        lines = chkfile.readlines()
+
+    newlines = []
+    for line in lines:
+        if not line.startswith(chk_id):
+            newlines.append(line)
+    
+    with open("IDPW.txt", "w", encoding='utf8') as chkfile:
+        chkfile.writelines(newlines)
 
 log_btn = Button(root, width=10, height=1, text="LogIn", command=chk_login)  # 로그인 버튼
 log_btn.pack()
