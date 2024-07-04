@@ -1,3 +1,5 @@
+
+
 $('.closebtn').click(function(){
     $('.join').hide()
 })
