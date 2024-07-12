@@ -24,7 +24,7 @@ pw_entry.pack()
 
 # 회원가입창 함수
 def join():
-    print("회원가입창입니다.")
+    msgbox.showinfo("알림", "회원가입하게?^_^")
     global new_id_en, new_pw_en, confirm_btn, canc_btn, new_id_label, new_pw_label, grid
 
     grid = ttk.Separator(root, orient="horizontal")
@@ -74,7 +74,7 @@ def confirm():
         with open("IDPW.txt", "a", encoding="utf8") as inf_file:
             inf_file.write("{} {}\n".format(dict_id, dict_pw))
     else:
-        print("아이디 또는 패스워드를 입력하세요!")
+        msgbox.showinfo("알림", "아이디 또는 패스워드를 입력하세요")
 
 
 
@@ -104,18 +104,18 @@ def chk_login():
                 dict[d_id] = d_pw
 
     except FileNotFoundError:
-        print("회원가입 기록이 없습니다.")
+        msgbox.showinfo("알림", "회원가입 기록이 없습니다.")
         return
 
     if input_id in dict and dict[input_id] == input_pw:
         print("로그인 성공!")
         infor_user()
     elif input_id not in dict:
-        print("입력하신 아이디는 존재하지 않습니다.")
+        msgbox.showinfo("알림", "아이디가 존재하지 않습니다.")
     elif dict[input_id] != input_pw:
-        print("비밀번호가 틀립니다.")
+        msgbox.showinfo("알림", "비밀번호가 틀립니다.")
     else:
-        print("로그인 실패")
+        msgbox.showinfo("알림", "로그인 실패.")
 
 # 사용자 정보(사용자사진, 로그아웃버튼, 회원탈퇴버튼 포함)
 # 사용자 사진 안나올시 -> 파일 경로 수정
