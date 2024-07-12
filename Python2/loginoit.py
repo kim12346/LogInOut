@@ -1,4 +1,5 @@
 from tkinter import *
+import tkinter.messagebox as msgbox
 from tkinter import ttk
 
 dict = {}
@@ -62,6 +63,7 @@ def cancle():
 # 회원가입 창에서 아이디와 비번을 입력하고 확인 버튼을 눌렀을 때의 이벤트
 def confirm(): 
 
+    msgbox.showinfo("알림", "회원가입이 완료되었습니다.")
     dict_id = new_id_en.get()
     dict_pw = new_pw_en.get()
     new_id_en.delete(0, END)
@@ -73,6 +75,8 @@ def confirm():
             inf_file.write("{} {}\n".format(dict_id, dict_pw))
     else:
         print("아이디 또는 패스워드를 입력하세요!")
+
+
 
     new_id_en.destroy() #입력 창 등 삭제
     new_pw_en.destroy()
