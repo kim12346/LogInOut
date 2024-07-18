@@ -63,13 +63,23 @@ def cancle():
 # 회원가입 창에서 아이디와 비번을 입력하고 확인 버튼을 눌렀을 때의 이벤트
 def confirm(): 
 
-    msgbox.showinfo("알림", "회원가입이 완료되었습니다.")
+
     dict_id = new_id_en.get()
     dict_pw = new_pw_en.get()
     new_id_en.delete(0, END)
     new_pw_en.delete(0, END)
 
     if dict_id and dict_pw:
+
+        new_id_en.destroy() #입력 창 등 삭제
+        new_pw_en.destroy()
+        new_id_label.destroy()
+        new_pw_label.destroy()
+        confirm_btn.destroy()
+        canc_btn.destroy()
+        grid.destroy()
+
+        msgbox.showinfo("알림", "회원가입이 완료되었습니다.")
         list.append("{} {}".format(dict_id, dict_pw))
         with open("IDPW.txt", "a", encoding="utf8") as inf_file:
             inf_file.write("{} {}\n".format(dict_id, dict_pw))
@@ -78,13 +88,6 @@ def confirm():
 
 
 
-    new_id_en.destroy() #입력 창 등 삭제
-    new_pw_en.destroy()
-    new_id_label.destroy()
-    new_pw_label.destroy()
-    confirm_btn.destroy()
-    canc_btn.destroy()
-    grid.destroy()
 
 #로그인 확인 함수
 def chk_login():
@@ -140,7 +143,6 @@ def infor_user():
 
 # 회원정보함수에서 로그아웃버튼을 눌렀을 때 로그아웃되는 함수
 def logout():
-
     new_id_en.destroy() #입력 창 등 삭제
     new_pw_en.destroy()
     new_id_label.destroy()
@@ -172,6 +174,7 @@ def proout():
     
     with open("IDPW.txt", "w", encoding='utf8') as chkfile:
         chkfile.writelines(newlines)
+    msgbox.showinfo("알림", "회원탈퇴되었습니다.")
 
 log_btn = Button(root, width=10, height=1, text="LogIn", command=chk_login)  # 로그인 버튼
 log_btn.pack()
