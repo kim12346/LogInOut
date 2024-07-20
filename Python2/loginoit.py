@@ -24,7 +24,6 @@ pw_entry.pack()
 
 # 회원가입창 함수
 def join():
-    msgbox.showinfo("알림", "회원가입하게?^_^")
     global new_id_en, new_pw_en, confirm_btn, canc_btn, new_id_label, new_pw_label, grid
 
     grid = ttk.Separator(root, orient="horizontal")
@@ -120,6 +119,7 @@ def chk_login():
     else:
         msgbox.showinfo("알림", "로그인 실패.")
 
+
 # 사용자 정보(사용자사진, 로그아웃버튼, 회원탈퇴버튼 포함)
 # 사용자 사진 안나올시 -> 파일 경로 수정
 def infor_user():
@@ -141,7 +141,7 @@ def infor_user():
 
 
 
-# 회원정보함수에서 로그아웃버튼을 눌렀을 때 로그아웃되는 함수
+# 로그아웃 함수
 def logout():
     new_id_en.destroy() #입력 창 등 삭제
     new_pw_en.destroy()
@@ -152,7 +152,7 @@ def logout():
     grid.destroy()
 
 
-# 회원탈퇴 함수(파일에 있는 아이디 지우고 로그아웃함수 포함시키기)
+# 회원탈퇴 함수
 def proout():
     global lines, chk_id, chk_pw, newlines, line
 
@@ -176,6 +176,9 @@ def proout():
         chkfile.writelines(newlines)
     msgbox.showinfo("알림", "회원탈퇴되었습니다.")
 
+
+
+# 메인
 log_btn = Button(root, width=10, height=1, text="LogIn", command=chk_login)  # 로그인 버튼
 log_btn.pack()
 
