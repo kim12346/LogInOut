@@ -173,11 +173,35 @@ def proout():
         chkfile.writelines(newlines)
     msgbox.showinfo("알림", "회원탈퇴되었습니다.")
 
+def lang_kor():
+    pass
+
+def lang_eng():
+    pass
+
+def lang_jpn():
+    pass
+
 # 메인
 log_btn = Button(root, width=10, height=1, text="로그인", command=chk_login)  # 로그인 버튼
 log_btn.pack()
 
 join_btn = Button(root, width=10, height=1, text="가입하기", command=join)  # 회원가입 버튼
 join_btn.pack()
+
+
+lang_frame = Frame(root) #html에서 container, contents같은 느낌
+lang_frame.pack(side=BOTTOM)
+
+kor_btn = Button(lang_frame, width=4, height=1, text="한글", command=lang_kor)
+kor_btn.pack(side=LEFT)
+
+eng_btn = Button(lang_frame, width=4, height=1, text="ENG", command=lang_eng)
+eng_btn.pack(side=LEFT)
+
+jpn_btn = Button(lang_frame, width=4, height=1, text="日本語", command=lang_jpn)
+jpn_btn.pack(side=LEFT)
+
+
 
 root.mainloop()
