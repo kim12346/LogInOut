@@ -24,7 +24,7 @@ pw_entry.pack()
 
 # 회원가입창 함수
 def join():
-    global new_id_en, new_pw_en, confirm_btn, canc_btn, new_id_label, new_pw_label, grid
+    global new_id_en, new_pw_en, confirm_btn, canc_btn, new_id_label, new_pw_label, grid, button_frame
 
     grid = ttk.Separator(root, orient="horizontal")
     grid.pack(fill="both")
@@ -41,10 +41,15 @@ def join():
     new_pw_en = Entry(root, width=30, show="*")
     new_pw_en.pack()
 
-    confirm_btn = Button(root, width=10, height=1, text="확인", command=confirm)
-    confirm_btn.pack()
-    canc_btn = Button(root, width=10, height=1, text='취소', command=cancel)
-    canc_btn.pack()
+    # Frame for buttons
+    button_frame = Frame(root)
+    button_frame.pack(padx=1)
+
+    confirm_btn = Button(button_frame, width=8, height=1, text="확인", command=confirm)
+    confirm_btn.pack(side=LEFT)
+
+    canc_btn = Button(button_frame, width=8, height=1, text='취소', command=cancel)
+    canc_btn.pack(side=LEFT)
 
 # 회원가입창 취소버튼함수(회원가입창 사라짐)
 def cancel():
@@ -55,6 +60,8 @@ def cancel():
     confirm_btn.destroy()
     canc_btn.destroy()
     grid.destroy()
+    button_frame.destroy()
+
 
 # 회원가입 창에서 아이디와 비번을 입력하고 확인 버튼을 눌렀을 때의 이벤트
 def confirm():
@@ -175,19 +182,27 @@ def proout():
 
 def lang_kor():
     pass
+    # log_btn.config(text="로그인")
+    # join_btn.config(text="가입하기")
+    # confirm_btn.config(text="확인")
+    # canc_btn.config(text="취소")
 
 def lang_eng():
-    pass
+    confirm_btn.config(text="confirm")
 
 def lang_jpn():
     pass
 
 # 메인
-log_btn = Button(root, width=10, height=1, text="로그인", command=chk_login)  # 로그인 버튼
-log_btn.pack()
 
-join_btn = Button(root, width=10, height=1, text="가입하기", command=join)  # 회원가입 버튼
-join_btn.pack()
+button_frame2 = Frame(root)
+button_frame2.pack(padx=1)
+
+log_btn = Button(button_frame2, width=8, height=1, text="로그인", command=chk_login)  # 로그인 버튼
+log_btn.pack(side=LEFT)
+
+join_btn = Button(button_frame2, width=8, height=1, text="가입하기", command=join)  # 회원가입 버튼
+join_btn.pack(side=LEFT)
 
 
 lang_frame = Frame(root) #html에서 container, contents같은 느낌
